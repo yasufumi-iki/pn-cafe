@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300' rel='stylesheet' type='text/css'>
+<title>NOM@DS</title>
+<link href="css/reset.css" rel="stylesheet" media="all">
+<link href="css/slidebars.min.css" rel="stylesheet" media="screen and (max-width: 767px)">
+<link href="css/main.css" rel="stylesheet" media="all">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="js/cmn.js"></script>
+<script src="js/slidebars.min.js"></script>
+<script>
+  (function($) {
+    $(document).ready(function() {
+      $.slidebars({
+        siteClose: true,
+		scrollLock: true
+      });
+    });
+  }) (jQuery);
+</script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.min.js"></script>
+<script src="js/css3-mediaqueries.js"></script>
+<![endif]-->
+</head>
+<body>
+<div id="sb-site">
+  <div id="wrapper">
+    <header>
+      <h1 id="logo"><a href="/"><img src="images/logo.png" alt="NOM@DS"/></a></h1>
+      <p class="menu sb-toggle-left"><i class="fa fa-bars"></i></p>
+      <nav>
+        <ul>
+          <li><a href="#">お問い合わせ</a></li>
+          <li id="login"><a href="#">ログイン</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="mainVisual">
+      <p class="catch">Let's Start Something<span>いつものカフェをあなたのアジトに</span></p>
+      <div class="search">
+        <form name="searchform" id="searchform" method="get" action="#">
+          <input type="text" placeholder="駅名、フリーキーワードで探す">
+          <input type="submit" name="submit" value="検索">
+        </form>
+      </div>
+      <ul>
+        <li class="place">吉祥寺</li>
+        <li>Eggway</li>
+      </ul>
+      <p class="btnDetail"><a href="#">詳細を見る</a></p>
+    </div>
+    <div id="topContents" class="contents">
+      <section id="pickup">
+        <h2>PICK UP</h2>
+        <ul>
+          <li>
+            <dl>
+              <dt><a href="result/detail.html"><span class="inner"><img src="images/ph_dummy01.jpg"  alt=""/><span class="shopName">Cafe ARABICA</span></span></a></dt>
+              <dd><span class="place"><a href="#">下北沢</a></span>・<span>1人</span></dd>
+            </dl>
+          </li>
+          <li>
+            <dl>
+              <dt><a href="#"><span class="inner"><img src="images/ph_dummy02.jpg"  alt=""/><span class="shopName">カフェドルチェカフェドルチェ</span></span></a></dt>
+              <dd><span class="place"><a href="#">渋谷</a></span>・<span>6人以上</span></dd>
+            </dl>
+          </li>
+          <li>
+            <dl>
+              <dt><a href="#"><span class="inner"><img src="images/ph_dummy03.jpg"  alt=""/><span class="shopName">La Boheme Cafe</span></span></a></dt>
+              <dd><span class="place"><a href="#">溜池山王</a></span>・<span>2〜3人</span></dd>
+            </dl>
+          </li>
+        </ul>
+      </section>
+      <section id="voice">
+        <h2>利用者の声</h2>
+        <dl>
+          <dt><span>企業側</span><span class="thumb"><img src="images/ph_person_dummy01.jpg" alt=""/></span></dt>
+          <dd class="text">"都内で物件を借りるのは高いですし、<br>
+            少人数の企業としては<br>
+            とても便利で助かりました。" <span>-（株）CrowdA 代表</span></dd>
+          <dd class="btn"><a href="#">利用者さまガイド</a></dd>
+        </dl>
+        <dl class="shop">
+          <dt><span>店舗側</span><span class="thumb"><img src="images/ph_person_dummy02.jpg" alt=""/></span></dt>
+          <dd class="text">"週末は混んでいても平日は<br>
+            お店が空いていたので<br>
+            その問題を解決できました" <span>-渋谷 Cafe ABC</span></dd>
+          <dd class="btn"><a href="#">店舗さまガイド</a></dd>
+        </dl>
+      </section>
+    </div>
+    <!--/.contents --> 
+  </div>
+  <!--/#wrapper -->
+  <footer>
+    <ul>
+      <li><a href="#">ABOUT US</a>&nbsp;｜</li>
+      <li><a href="#">PRIVACY</a>&nbsp;｜</li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+    <p id="copyright"><small>&#169; primeNumber Inc. All rights reserved. </small></p>
+  </footer>
+</div>
+<!--/#sb-site -->
+
+<div class="sb-slidebar sb-left">
+  <ul>
+    <li><a href="#">ホーム</a></li>
+    <li><a href="#">お問い合わせ</a></li>
+    <li><a href="#">ログイン</a></li>
+    <li><a href="#">ABOUT US</a></li>
+    <li><a href="#">PRIVACY</a></li>
+  </ul>
+</div>
+<!--/.sb-slidebar -->
+</body>
+</html>
