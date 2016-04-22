@@ -17,6 +17,9 @@
               icon : {
                 size : new google.maps.Size(32, 32),
                 url : icon
+              },
+              infoWindow: {
+                content: '<p>' + item.name + '</p>'
               }
             });
           }
@@ -28,7 +31,6 @@
 
     function printResults(data) {
       $('#foursquare-results').text(JSON.stringify(data));
-      //prettyPrint();
     }
 
     $(document).on('click', '.pan-to-marker', function(e) {
