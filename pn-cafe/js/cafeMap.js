@@ -13,7 +13,9 @@
             markers_data.push({
               lat : item.location.lat,
               lng : item.location.lng,
+              city : item.location.city,
               title : item.name,
+              count : item.stats.usersCount,
               icon : {
                 size : new google.maps.Size(32, 32),
                 url : icon
@@ -57,8 +59,14 @@
 
       map.on('marker_added', function (marker) {
         var index = map.markers.indexOf(marker);
-        $('#results').append('<li><a href="#" class="pan-to-marker" data-marker-index="' + index + '">' + marker.title + '</a></li>');
+        var anchor ='<a href="#" class="pan-to-marker" data-marker-index="' + index + '">';
+        var thumbnail = '<p class="thumb"><img src="../images/ph_dummy02.jpg" alt=""/></p>'; //jsonで返ってくれば動的にもできます。
+        var shopTitle ='<dt class="shopName">'+ marker.title +'</dt>';
+        var stars ='<dd class="star"><i class="fa fa-star"></i></dd>'; //動的に星の数を変える作りが悩ましいです。
+        var placement = '<dd class="placeList"><span>'+ marker.city +'</span></dd>';
+        var users = '<dd class="user"><span>'+ marker.count +'</span>名利用中</dd>';
 
+        $('.resultList').append('<li class="shopName">'+ anchor + thumbnail +'<dl>' + shopTitle + stars + placement + users +'</dl></a></li>');
         if (index == map.markers.length - 1) {
           map.fitZoom();
         }
