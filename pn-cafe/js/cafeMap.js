@@ -40,10 +40,6 @@
       map.addMarkers(markers_data);
     }
 
-    function printResults(data) {
-      $('#foursquare-results').text(JSON.stringify(data));
-    }
-
     $(document).on('click', '.pan-to-marker', function(e) {
       e.preventDefault();
 
