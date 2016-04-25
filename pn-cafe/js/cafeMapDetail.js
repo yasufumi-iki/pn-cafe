@@ -13,7 +13,10 @@
             markers_data.push({
               lat : item.location.lat,
               lng : item.location.lng,
+              state : item.location.state,
               city : item.location.city,
+              postalCode : item.location.postalCode,
+              address : item.location.address,
               title : item.name,
               id : item.id,
               count : item.stats.usersCount,
@@ -68,20 +71,28 @@
 
       map.on('marker_added', function (marker) {
         var index = map.markers.indexOf(marker);
-        var anchor ='<a href="detail.html?p='+ marker.title +'">'; //リンク先も動的に。
+        var anchor ='<a href="detail.html">'; //jsonで動的に。
         var thumbnail = '<p class="thumb"><img src="../images/ph_dummy02.jpg" alt=""/></p>'; //jsonで返ってくれば動的にもできます。
-        var shopTitle ='<dt class="shopName">'+ marker.title +'</dt>';
+        var shopTitle ='<h2 class="shopName">'+ marker.title +'</h2>';
         var stars ='<dd class="star"><i class="fa fa-star"></i></dd>'; //動的に星の数を変える作りが悩ましいです。
-        var placement = '<dd class="placeList"><span>'+ marker.city +'</span></dd>';
-        var users = '<dd class="user"><span>'+ marker.count +'</span>名利用中</dd>';
+        var placement = '<p class="placeList"><span>'+ marker.city +'</span></p>';
+        var users = '<p class="user"><span>'+ marker.count +'</span>名利用中</p>';
+        var address = '<p class="address">〒'+ marker.postalCode + ' '+ marker.state + marker.city + marker.address + '</p>';
+        var shopLink = '<p class="link"><a href="#" target="_blank">http://cafe-laboheme.co.jp</a></p>'; //jsonで動的に。
+        var contact = '<p class="btn"><a href="contact.html">お問い合わせする</a></p>'; //jsonで動的に。
 
-        $('.resultList').append('<li class="shopName" id="'+ marker.id +'">'+ anchor + thumbnail +'<dl>' + shopTitle + stars + placement + users +'</dl></a></li>');
+        $('#shopDetail').append(users + shopTitle + stars + placement + address + shopLink +contact);
         if (index == map.markers.length - 1) {
           map.fitZoom();
         }
       });
 
-      var xhr = $.getJSON('https://coffeemaker.herokuapp.com/foursquare.json?q[near]=shibuya&q[query]=cafe');
+      var url   = location.href;
+      params    = url.split("=");
+      var paramArray = [];
+      var queryUrl = "https://coffeemaker.herokuapp.com/foursquare.json?q[near]=JP&q[limit]=1&q[query]=" + params[1];
+
+      var xhr = $.getJSON(queryUrl);
 
       xhr.done(printResults);
       xhr.done(loadResults);
