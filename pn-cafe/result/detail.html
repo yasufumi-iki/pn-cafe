@@ -11,8 +11,11 @@
 <link href="../css/slidebars.min.css" rel="stylesheet" media="screen and (max-width: 767px)">
 <link href="../css/main.css" rel="stylesheet" media="all">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="../js/cmn.js"></script>
 <script src="../js/slidebars.min.js"></script>
+<script src="../js/cafeMapDetail.js"></script>
+<script src="../js/gmaps.js"></script>
 <script>
   (function($) {
     $(document).ready(function() {
@@ -80,15 +83,7 @@ if(!navigator.userAgent.match(/(iPhone|Android)/)){
           <div class="nav next"></div>
           <div class="nav prev"></div>
         </div>
-        <section>
-          <p class="user"><span>1</span>名利用中</p>
-          <h2 class="shopName">カフェドルチェカフェドルチェカフェドルチェカフェドルチェ</h2>
-          <p class="star"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half"></i></p>
-          <p class="placeList"><span>渋谷</span><span>代官山</span></p>
-          <p class="address">〒150-0043 東京都渋谷区道玄坂9丁目99</p>
-          <p class="link"><a href="#" target="_blank">http://cafe-laboheme.co.jp</a></p>
-          <p class="btn"><a href="contact.html">お問い合わせする</a></p>
-        </section>
+        <section id="shopDetail"></section>
         <section>
           <h3>施設・設備</h3>
           <ul class="facilityList">
