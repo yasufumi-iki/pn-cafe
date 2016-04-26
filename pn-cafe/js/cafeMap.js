@@ -1,4 +1,5 @@
  var map;
+ var mapSp;
     function loadResults (data) {
       var items, markers_data = [];
       if (data.venues.length > 0) {
@@ -38,6 +39,7 @@
       }
 
       map.addMarkers(markers_data);
+      mapSp.addMarkers(markers_data);
     }
 
     function printResults(data) {
@@ -57,13 +59,20 @@
       lng = position.lng();
 
       map.setCenter(lat, lng);
+      mapSp.setCenter(lat, lng);
     });
 
     $(document).ready(function(){
       map = new GMaps({
         div: '#googlemap',
-        lat: -12.043333,
-        lng: -77.028333
+        lat: 35.6514923,
+        lng: 139.7014542
+      });
+
+      mapSp = new GMaps({
+        div: '#googlemapSp',
+        lat: 35.6514923,
+        lng: 139.7014542
       });
 
       map.on('marker_added', function (marker) {
@@ -76,8 +85,16 @@
         var users = '<dd class="user"><span>'+ marker.count +'</span>名利用中</dd>';
 
         $('.resultList').append('<li class="shopName" id="'+ marker.id +'">'+ anchor + thumbnail +'<dl>' + shopTitle + stars + placement + users +'</dl></a></li>');
+        
         if (index == map.markers.length - 1) {
           map.fitZoom();
+        }
+      });
+
+      mapSp.on('marker_added', function (marker) {
+        var index = mapSp.markers.indexOf(marker);
+        if (index == mapSp.markers.length - 1) {
+          mapSp.fitZoom();
         }
       });
 

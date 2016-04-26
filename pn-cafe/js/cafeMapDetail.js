@@ -1,4 +1,5 @@
  var map;
+ var mapSp;
     function loadResults (data) {
       var items, markers_data = [];
       if (data.venues.length > 0) {
@@ -24,14 +25,6 @@
                 size : new google.maps.Size(32, 32),
                 url : icon
               },
-              click: function(e) {
-                var position = $("#" + item.id).offset().top;
-                $("html,body").animate({
-                  scrollTop : position
-                }, {
-                  queue : false
-                });
-              },
               infoWindow: {
                 content: '<p>' + item.name + '</p>'
               }
@@ -41,6 +34,7 @@
       }
 
       map.addMarkers(markers_data);
+      mapSp.addMarkers(markers_data);
     }
 
     function printResults(data) {
@@ -60,13 +54,20 @@
       lng = position.lng();
 
       map.setCenter(lat, lng);
+      mapSp.setCenter(lat, lng);
     });
 
     $(document).ready(function(){
       map = new GMaps({
         div: '#googlemap',
-        lat: -12.043333,
-        lng: -77.028333
+        lat: 35.6514923,
+        lng: 139.7014542
+      });
+
+      mapSp = new GMaps({
+        div: '#googlemapSp',
+        lat: 35.6514923,
+        lng: 139.7014542
       });
 
       map.on('marker_added', function (marker) {
@@ -84,6 +85,14 @@
         $('#shopDetail').append(users + shopTitle + stars + placement + address + shopLink +contact);
         if (index == map.markers.length - 1) {
           map.fitZoom();
+        }
+      });
+
+      mapSp.on('marker_added', function (marker) {
+        var index = mapSp.markers.indexOf(marker);
+        
+        if (index == mapSp.markers.length - 1) {
+          mapSp.fitZoom();
         }
       });
 
